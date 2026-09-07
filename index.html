@@ -3,46 +3,210 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LOOKSMAX протокол</title>
+<title>LUXMAX CORE</title>
 <link rel="stylesheet" href="style.css" />
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
+  <div class="bg-skull" aria-hidden="true"></div>
+  <div class="bg-sheen" aria-hidden="true"></div>
   <main class="page">
+
     <section class="hero">
-      <p class="eyebrow">21 день · один протокол</p>
-      <h1>Видимый апгрейд лица и силуэта — без пластики и голодовок</h1>
-      <p class="price"><span class="old">1550₽</span> <span class="new">1050₽</span> · разово, доступ навсегда</p>
+      <div class="hero-glow"></div>
+      <span class="badge">21 ДЕНЬ · ПРОТОКОЛ №1</span>
+      <h1>Видимый апгрейд<br /><span class="accent">лица и силуэта</span></h1>
+      <p class="subtitle">Без пластики. Без голодовок. Без гадания, какое упражнение «то самое».</p>
+
+      <div class="price-row">
+        <span class="price-old">1550₽</span>
+        <span class="price-new">1050₽</span>
+        <span class="price-badge">−32%</span>
+      </div>
+
+      <div class="progress-preview">
+        <div class="progress-preview__label">
+          <span>Твой путь</span>
+          <span>День 0 / 21</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 4%"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block block-bleed">
+      <h2 class="block-title">Что внутри</h2>
+      <div class="carousel">
+        <div class="carousel-track">
+
+          <!-- набор карточек — повторён дважды ниже для бесшовной прокрутки "барабаном" -->
+          <div class="feature-card">
+            <div class="feature-icon icon-skull">
+              <img src="skull.png" alt="" />
+            </div>
+            <div class="feature-title">Челюсть и скулы</div>
+            <div class="feature-text">Техника выполнения, не только названия</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M2.5 12C4.8 7.4 8.1 5 12 5s7.2 2.4 9.5 7c-2.3 4.6-5.6 7-9.5 7s-7.2-2.4-9.5-7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <div class="feature-title">Hunter eyes</div>
+            <div class="feature-text">И отёчность лица — с честной маркировкой</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2.8" y="9.2" width="2.6" height="5.6" rx="1"/><rect x="18.6" y="9.2" width="2.6" height="5.6" rx="1"/><line x1="7.2" y1="12" x2="16.8" y2="12"/><rect x="5.8" y="7.6" width="2" height="8.8" rx="1"/><rect x="16.2" y="7.6" width="2" height="8.8" rx="1"/></svg>
+            </div>
+            <div class="feature-title">Сплит на тело</div>
+            <div class="feature-text">Готовый, без гадания «то самое» упражнение</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.2C12 3.2 6.4 10.4 6.4 14.4a5.6 5.6 0 0 0 11.2 0C17.6 10.4 12 3.2 12 3.2Z"/></svg>
+            </div>
+            <div class="feature-title">Уход и добавки</div>
+            <div class="feature-text">Только с оговорками, без бесполезного</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="5.5" y1="18.5" x2="5.5" y2="12"/><line x1="12" y1="18.5" x2="12" y2="6"/><line x1="18.5" y1="18.5" x2="18.5" y2="9.5"/></svg>
+            </div>
+            <div class="feature-title">8 программ</div>
+            <div class="feature-text">От 5-минутной утренней до 90-дневного трека</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-blue">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            <div class="feature-title">Кожа, брови, зубы</div>
+            <div class="feature-text">Форма стрижки под лицо, брови, гигиена — без DIY-отбеливания</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 16l4.5-5 4 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.5" cy="11" r="1" fill="currentColor"/><circle cx="12.5" cy="14" r="1" fill="currentColor"/><circle cx="18.5" cy="7" r="1" fill="currentColor"/></svg>
+            </div>
+            <div class="feature-title">Трекер прогресса</div>
+            <div class="feature-text">Фото, вес, объёмы, сон — всё в одном месте</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon icon-amber">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4.5 21 19H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><line x1="12" y1="10" x2="12" y2="14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.7" r="0.9" fill="currentColor"/></svg>
+            </div>
+            <div class="feature-title">Красные флаги</div>
+            <div class="feature-text">Когда стоп и к врачу, а не терпеть через боль</div>
+          </div>
+
+          <!-- дубликат для бесшовного цикла -->
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-skull">
+              <img src="skull.png" alt="" />
+            </div>
+            <div class="feature-title">Челюсть и скулы</div>
+            <div class="feature-text">Техника выполнения, не только названия</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M2.5 12C4.8 7.4 8.1 5 12 5s7.2 2.4 9.5 7c-2.3 4.6-5.6 7-9.5 7s-7.2-2.4-9.5-7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <div class="feature-title">Hunter eyes</div>
+            <div class="feature-text">И отёчность лица — с честной маркировкой</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2.8" y="9.2" width="2.6" height="5.6" rx="1"/><rect x="18.6" y="9.2" width="2.6" height="5.6" rx="1"/><line x1="7.2" y1="12" x2="16.8" y2="12"/><rect x="5.8" y="7.6" width="2" height="8.8" rx="1"/><rect x="16.2" y="7.6" width="2" height="8.8" rx="1"/></svg>
+            </div>
+            <div class="feature-title">Сплит на тело</div>
+            <div class="feature-text">Готовый, без гадания «то самое» упражнение</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.2C12 3.2 6.4 10.4 6.4 14.4a5.6 5.6 0 0 0 11.2 0C17.6 10.4 12 3.2 12 3.2Z"/></svg>
+            </div>
+            <div class="feature-title">Уход и добавки</div>
+            <div class="feature-text">Только с оговорками, без бесполезного</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="5.5" y1="18.5" x2="5.5" y2="12"/><line x1="12" y1="18.5" x2="12" y2="6"/><line x1="18.5" y1="18.5" x2="18.5" y2="9.5"/></svg>
+            </div>
+            <div class="feature-title">8 программ</div>
+            <div class="feature-text">От 5-минутной утренней до 90-дневного трека</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-blue">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            <div class="feature-title">Кожа, брови, зубы</div>
+            <div class="feature-text">Форма стрижки под лицо, брови, гигиена — без DIY-отбеливания</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 16l4.5-5 4 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.5" cy="11" r="1" fill="currentColor"/><circle cx="12.5" cy="14" r="1" fill="currentColor"/><circle cx="18.5" cy="7" r="1" fill="currentColor"/></svg>
+            </div>
+            <div class="feature-title">Трекер прогресса</div>
+            <div class="feature-text">Фото, вес, объёмы, сон — всё в одном месте</div>
+          </div>
+          <div class="feature-card" aria-hidden="true">
+            <div class="feature-icon icon-amber">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4.5 21 19H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><line x1="12" y1="10" x2="12" y2="14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.7" r="0.9" fill="currentColor"/></svg>
+            </div>
+            <div class="feature-title">Красные флаги</div>
+            <div class="feature-text">Когда стоп и к врачу, а не терпеть через боль</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="block">
-      <h2>Что внутри</h2>
-      <ul>
-        <li><strong>Оценка + план</strong> — сам выбираешь фокус: лицо, тело или всё сразу</li>
-        <li><strong>Библиотека техник для лица</strong> — челюсть, скулы, впалые щёки, «hunter eyes», отёчность, с честной маркировкой 🟢/🟡</li>
-        <li><strong>Готовый сплит на тело</strong> — без гадания какое упражнение «то самое»</li>
-        <li><strong>Уход и добавки</strong> — только с оговорками, без бесполезного</li>
-        <li><strong>8 готовых программ</strong> — от 5-минутной утренней до 90-дневного трека</li>
-        <li><strong>Трекер до/после</strong> на каждом этапе</li>
-      </ul>
-    </section>
-
-    <section class="block callout">
-      <h2>Честно</h2>
-      <p>Это новый протокол — отзывов пока немного, не выдумываем кейсы. Зато вся база
-      с пометками, где реальная доказательность, а где эффект не подтверждён исследованиями.</p>
+      <h2 class="block-title">Система, а не хаки</h2>
+      <div class="flow">
+        <div class="flow-step"><span class="flow-dot"></span>Оценка</div>
+        <div class="flow-step"><span class="flow-dot"></span>Цель</div>
+        <div class="flow-step"><span class="flow-dot"></span>План</div>
+        <div class="flow-step"><span class="flow-dot"></span>Действия каждый день</div>
+        <div class="flow-step"><span class="flow-dot"></span>Трекинг прогресса</div>
+      </div>
     </section>
 
     <section class="block">
-      <h2>18+</h2>
-      <p>Продукт рассчитан на взрослых. Не заменяет консультацию врача — раздел
-      «Красные флаги» в самом протоколе подскажет, когда стоит обратиться к специалисту,
-      а не заниматься самолечением.</p>
+      <h2 class="block-title">Кейсы</h2>
+      <div class="case-card">
+        <div class="case-images">
+          <div class="case-img-wrap">
+            <img src="case1-before.jpg" alt="До" loading="lazy" />
+            <span class="case-tag">До</span>
+          </div>
+          <div class="case-img-wrap">
+            <img src="case1-after.jpg" alt="После" loading="lazy" />
+            <span class="case-tag case-tag-after">После</span>
+          </div>
+        </div>
+        <div class="case-caption">
+          <span class="case-name">Андрей</span>
+          <span class="case-days">21 день по протоколу</span>
+        </div>
+      </div>
     </section>
 
-    <button id="buy-button" class="buy-button">Забрать протокол за 1050₽</button>
-    <p class="hint" id="hint">Нажми кнопку — оплата откроется прямо в Telegram</p>
+    <section class="block callout callout-warn">
+      <div class="callout-tag">16+</div>
+      <p>Продукт рассчитан на подростков от 16 лет и старше. Не заменяет консультацию врача — раздел
+      «Красные флаги» подскажет, когда стоит обратиться к специалисту, а не заниматься самолечением.</p>
+    </section>
+
+    <div class="spacer"></div>
   </main>
+
+  <div class="buy-bar">
+    <div class="buy-bar__price">
+      <span class="buy-bar__old">1550₽</span>
+      <span class="buy-bar__new">1050₽</span>
+    </div>
+    <button id="buy-button" class="buy-button">Забрать протокол</button>
+  </div>
+  <p class="hint" id="hint">Оплата откроется прямо в Telegram</p>
 
   <script src="script.js"></script>
 </body>

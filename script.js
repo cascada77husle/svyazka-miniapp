@@ -6,6 +6,14 @@ const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.ready();
   tg.expand();
+  // Страница всегда тёмная (собственный бренд), а не тема пользователя —
+  // подгоняем системные панели Telegram под тот же цвет для бесшовного вида.
+  try {
+    tg.setBackgroundColor("#0a0a12");
+    tg.setHeaderColor("#0a0a12");
+  } catch (e) {
+    // старые клиенты Telegram могут не поддерживать эти методы — не критично
+  }
 }
 
 const buyButton = document.getElementById("buy-button");
