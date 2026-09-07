@@ -29,3 +29,19 @@ buyButton.addEventListener("click", () => {
     hint.textContent = "Открой это через кнопку в боте в Telegram, чтобы оплата сработала.";
   }
 });
+
+// Карточки "Что внутри" — прижал пальцем/мышкой, лента останавливается,
+// отпустил — едет дальше. :hover не срабатывает на телефонах, поэтому
+// ставим паузу вручную через touch/mouse события на каждой ленте отдельно.
+document.querySelectorAll(".carousel-track").forEach((track) => {
+  const pause = () => track.classList.add("is-paused");
+  const resume = () => track.classList.remove("is-paused");
+
+  track.addEventListener("touchstart", pause, { passive: true });
+  track.addEventListener("touchend", resume);
+  track.addEventListener("touchcancel", resume);
+
+  track.addEventListener("mousedown", pause);
+  track.addEventListener("mouseup", resume);
+  track.addEventListener("mouseleave", resume);
+});
