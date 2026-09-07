@@ -273,8 +273,8 @@ body {
 }
 
 .carousel .feature-card {
-  flex: 0 0 170px;
-  width: 170px;
+  flex: 0 0 132px;
+  width: 132px;
 }
 
 @keyframes carousel-scroll {
