@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LUXMAX CORE</title>
+<!-- ?v= — версия для сброса кэша Telegram WebView. Telegram агрессивно кэширует
+     статику Mini App по URL; при каждом деплое новых правок увеличивай это
+     число (или дату), иначе пользователи будут видеть старую версию, пока
+     сами не почистят кэш Telegram. -->
+<link rel="stylesheet" href="style.css?v=8" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="bg-skull" aria-hidden="true"></div>
+  <div class="bg-sheen" aria-hidden="true"></div>
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <span class="badge">51 ДЕНЬ · ПРОТОКОЛ №1</span>
+      <h1>Видимый апгрейд<br /><span class="accent">лица и силуэта</span></h1>
+      <p class="subtitle subtitle-promise">Чётче челюсть, острее скулы, меньше отёчности за 51 день по протоколу.</p>
+
+      <div class="price-row">
+        <span class="price-old">1550₽</span>
+        <span class="price-new">1050₽</span>
+        <span class="price-badge">−32%</span>
+      </div>
+
+      <div class="case-block" id="case">
+        <p class="kicker">Реальный результат</p>
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-name">Андрей</span>
+            <span class="case-days">51 день по протоколу</span>
+          </div>
+          <div class="case-images">
+            <div class="case-img-wrap">
+              <img src="case1-before.jpg" alt="До" loading="lazy" />
+              <span class="case-tag">До</span>
+            </div>
+            <span class="case-arrow">→</span>
+            <div class="case-img-wrap">
+              <img src="case1-after.jpg" alt="После" loading="lazy" />
+              <span class="case-tag case-tag-after">После</span>
+            </div>
+          </div>
+          <div class="case-changes">
+            <div class="case-changes-title">Что изменил</div>
+            <div class="case-changes-list">
+              <span class="case-chip">Режим</span>
+              <span class="case-chip">Уход</span>
+              <span class="case-chip">Работа с отёчностью</span>
+              <span class="case-chip">Укладка</span>
+              <span class="case-chip">Ежедневный протокол</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-preview">
+        <div class="progress-preview__label">
+          <span>Твой путь</span>
+          <span>День 0 / 51</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 4%"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Кому подходит</h2>
+      <div class="callout audience-card">
+        <div class="flow-step"><span class="flow-dot"></span>Смотришь в зеркало и видишь потенциал, но советы из интернета противоречат друг другу</div>
+        <div class="flow-step"><span class="flow-dot"></span>Пробовал упражнения из тиктока, но без системы результат не держится и не виден</div>
+        <div class="flow-step"><span class="flow-dot"></span>Хочешь чёткую челюсть, скулы и подтянутое лицо без пластики и голодовок</div>
+        <div class="flow-step"><span class="flow-dot"></span>Готов уделять 5–20 минут в день, если знаешь, что это работает на 51-дневной системе</div>
+      </div>
+    </section>
+
+    <section class="block">
+      <details class="program-list">
+        <summary>
+          <div class="program-summary__text">
+            <div class="block-title">Программа</div>
+            <div class="program-summary__meta">51 день · 9 систем протокола</div>
+          </div>
+        </summary>
+
+        <div class="program-items">
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5h16" stroke="currentColor" stroke-width="1.6"/><path d="M9 13.5l2 2 4-4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Ежедневные задания и практики</div>
+              <div class="program-text">Понятный план на каждый из 51 дня: что делать сегодня, без импровизации.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2 6 4-12 2 6h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Система упражнений и физических комплексов</div>
+              <div class="program-text">Комплексы для лица, шеи, осанки и тела, собранные в систему, а не разрозненные ролики.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v6a2 2 0 0 0 2 2v10M7 3v6M9 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3c-1.8 0-3.2 2.1-3.2 4.7 0 2.2 1 3.9 2.4 4.4V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Питание и готовые решения на каждый день</div>
+              <div class="program-text">Что есть и когда, без подсчёта калорий и жёстких диет.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 19V10M12 19V5M19 19v-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Трекер привычек, сна, воды и активности</div>
+              <div class="program-text">Ежедневные отметки по сну, воде, привычкам и активности в одном месте.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 7l1.5-2.5h5L16 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13.5" r="3.4" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Контроль внешних и физических изменений</div>
+              <div class="program-text">Регулярные фото и замеры в одном ракурсе: видишь прогресс, а не гадаешь.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.2C12 3.2 6.4 10.4 6.4 14.4a5.6 5.6 0 0 0 11.2 0C17.6 10.4 12 3.2 12 3.2Z"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Рекомендации по уходу и восстановлению</div>
+              <div class="program-text">Уход за кожей и восстановление: что делать до и после нагрузки.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 16l5.5-5.5 3.5 3.5L20 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 6.5H20v5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Аналитика и отслеживание динамики</div>
+              <div class="program-text">Сводка по неделям: где растёт прогресс, а где стоит скорректировать темп.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Библиотека материалов и практик</div>
+              <div class="program-text">Все техники и материалы протокола в одном месте, доступны в любой день.</div>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div class="program-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 3v18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6 4.5h10l-2.5 3.5L16 11.5H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="program-copy">
+              <div class="program-title">Система после завершения протокола</div>
+              <div class="program-text">Отдельная программа поддержания результата после 51 дня, а не пустота.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="block callout callout-warn">
+      <div class="callout-tag">16+</div>
+      <p>От 16 лет. Не заменяет консультацию врача: раздел «Красные флаги» подскажет,
+      когда стоит обратиться к специалисту, а не заниматься самолечением.</p>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Частые вопросы (FAQ)</h2>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Это упражнения?</summary>
+          <p>В основном да: техники для лица, шеи и осанки без инвентаря, плюс уход за
+          кожей и волосами, тренировки тела и питание. Не только «упражнения» в узком
+          смысле, это целостная система на 51 день.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Сколько времени занимает в день?</summary>
+          <p>От 5 минут для коротких дней до более полного набора практик, сам выбираешь
+          темп под своё расписание.</p>
+        </details>
+        <details class="faq-item">
+          <summary>На какой срок доступ?</summary>
+          <p>Оплата разовая, доступ остаётся навсегда: платишь один раз.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Что я получу после оплаты?</summary>
+          <p>Протокол на 51 день открывается прямо в Telegram: ежедневные задания, система
+          упражнений, питание, трекер привычек, контроль изменений, уход и восстановление,
+          аналитика динамики, библиотека материалов и отдельная система после завершения
+          протокола.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Нужны ли дополнительные продукты?</summary>
+          <p>Нет, база ничего не требует докупать. Всё, что нужно докупить опционально,
+          отмечено отдельно и никогда не обязательная часть.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Можно ли проходить со смартфона?</summary>
+          <p>Да, весь протокол открывается прямо в Telegram, ничего дополнительно
+          устанавливать не нужно.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Это безопасно?</summary>
+          <p>Техники подобраны как щадящие: без нагрузки на суставы и зубы. Отдельный
+          раздел «Красные флаги» подскажет, когда лучше остановиться и обратиться к врачу
+          вместо самолечения.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Через сколько будут заметны изменения?</summary>
+          <p>По отёчности, осанке и коже обычно быстрее, в течение первых недель. По
+          костной структуре лица (скулы, челюсть) эффект накопительный, для этого в
+          протокол и входит система контроля изменений: сверяешься с собой по фото и
+          замерам каждую неделю, а не «на глаз».</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+  </main>
+
+  <div class="buy-bar">
+    <div class="buy-bar__main">
+      <div class="buy-bar__price">
+        <span class="buy-bar__old">1550₽</span>
+        <div class="buy-bar__price-row">
+          <span class="buy-bar__new">1050₽</span>
+          <span class="buy-bar__badge">−32%</span>
+        </div>
+        <div class="buy-bar__methods">
+          <img class="pay-icon" src="alfa.png" alt="Альфа-Банк" title="Альфа-Банк" loading="lazy" />
+          <img class="pay-icon" src="sber.png" alt="Сбербанк" title="Сбербанк" loading="lazy" />
+          <img class="pay-icon" src="tbank.png" alt="Т-Банк" title="Т-Банк" loading="lazy" />
+          <img class="pay-icon" src="sbp.png" alt="СБП" title="СБП" loading="lazy" />
+          <img class="pay-icon" src="mastercard.png" alt="Mastercard" title="Mastercard" loading="lazy" />
+          <img class="pay-icon" src="visa.png" alt="Visa" title="Visa" loading="lazy" />
+          <img class="pay-icon" src="bitcoin.png" alt="Крипта" title="Крипта" loading="lazy" />
+        </div>
+      </div>
+      <button id="buy-button" class="buy-button">Забрать протокол</button>
+    </div>
+  </div>
+  <p class="hint" id="hint">Оплата в Telegram · доступ навсегда сразу после оплаты</p>
+
+  <script src="script.js?v=4"></script>
+</body>
+</html>
