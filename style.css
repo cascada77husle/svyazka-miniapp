@@ -143,6 +143,13 @@ body {
   max-width: 34ch;
 }
 
+.subtitle-promise {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15.5px;
+  margin-bottom: 8px;
+}
+
 .price-row {
   position: relative;
   display: flex;
@@ -244,99 +251,27 @@ body {
   color: var(--text);
 }
 
+.kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 0 0 10px;
+}
+
+.case-block { position: relative; margin-bottom: 22px; }
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-/* "Барабан" — карточки едут бесшовной каруселью, без ручного скролла */
-.block-bleed {
-  margin-left: -18px;
-  margin-right: -18px;
-}
-
-.carousel {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
-  /* Изолируем перерисовку едущей ленты от остального документа */
-  contain: layout paint style;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 10px;
-  width: max-content;
-  padding: 0 18px;
-  animation: carousel-scroll 28s linear infinite;
-  /* Подсказка браузеру заранее вынести ленту на отдельный GPU-слой —
-     без этого каждый кадр анимации может триггерить перерасчёт layout/paint
-     соседних блоков, что и даёт периодические подтормаживания на ПК/телефоне. */
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-.carousel-track:hover,
-.carousel-track.is-paused {
-  animation-play-state: paused;
-}
-
-/* Второй ряд едет навстречу первому */
-.carousel-track--reverse {
-  animation-direction: reverse;
-}
-
-.carousel .feature-card {
-  flex: 0 0 150px;
-  width: 150px;
-  aspect-ratio: 1 / 1;
-  padding: 14px;
-  /* backdrop-filter (размытие фона "на лету") — самый дорогой эффект на
-     странице: 14 карточек в двух бесконечных лентах, каждая пересчитывает
-     блюр за кадром движения — отсюда подтормаживания на слабых
-     телефонах/ПК. На едущих карточках убираем сам blur, оставляя тот же
-     "стеклянный" вид через плотный полупрозрачный фон без runtime-стоимости;
-     статичные стеклянные блоки на странице (вне карусели) блюр сохраняют. */
-  /* Радужный стеклянный перелив — не отдельный слой (::before/::after
-     добавляют браузеру ещё один компоузит-слой на каждую из 28 едущих
-     карточек, и это само по себе стоило нескольких fps по замеру),
-     а второй слой ПРЯМО в background той же карточки: рисуется в ту же
-     текстуру, что и сама карточка, и просто едет вместе с ней одним
-     слоем — без лишней стоимости на кадр. */
-  background: rgba(21, 21, 31, 0.82);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  /* Дешёвая имитация грани стекла: тонкий световой контур через
-     box-shadow (не gradient-заливка) — по замеру ощутимо дешевле, чем
-     заливка градиентом всей площади карточки на 28 едущих карточках. */
-  box-shadow:
-    var(--glass-shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 0 0 1px rgba(140, 190, 255, 0.10);
-}
-
-.carousel .feature-title {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.carousel .feature-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-@keyframes carousel-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.feature-card {
+/* Программа — статичный сгруппированный список (без движения/карусели):
+   один "стеклянный" контейнер, строки разделены тонкими линиями —
+   минималистичный паттерн вместо прежней бегущей ленты карточек. */
+.program-list {
   position: relative;
   overflow: hidden;
   background: var(--glass-bg);
@@ -344,115 +279,78 @@ body {
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
-  padding: 16px;
   box-shadow: var(--glass-shadow);
 }
 
-/* Глянцевые тёмно-стеклянные сферы со внутренним переливом —
-   по мотивам референса (тёмный стеклянный шар с радужным бликом),
-   не копия конкретной иконки, свой рисунок. */
-.feature-icon {
+.program-item {
   position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.program-item:first-child { border-top: none; }
+
+.program-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 32px 14px 18px;
+  position: relative;
+}
+
+.program-item summary::-webkit-details-marker { display: none; }
+
+.program-item summary::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.6px solid var(--text-dim);
+  border-bottom: 1.6px solid var(--text-dim);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.program-item[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.program-icon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
-    inset 0 -10px 14px rgba(0, 0, 0, 0.55),
-    inset 0 7px 10px rgba(255, 255, 255, 0.1),
-    0 8px 16px -9px rgba(0, 0, 0, 0.65);
-  overflow: hidden;
-  /* Пробовал добавить реальный backdrop-filter blur сюда для "настоящего
-     стекла" — на эмуляции слабого устройства это не проседало, но по
-     факту всё равно ощутимо лагало на реальном телефоне: 28 таких значков
-     одновременно едут вместе с карточками, и даже небольшой blur на
-     каждом суммарно дорог. Убрано — оставлен только "стеклянный" вид без
-     runtime-блюра (градиент + блик), визуально почти неотличимо. */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-.feature-icon::before {
-  content: "";
-  position: absolute;
-  top: 6%;
-  left: 10%;
-  width: 46%;
-  height: 40%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.85), transparent 72%);
-  filter: blur(0.5px);
-  pointer-events: none;
-}
-
-/* Радужный перелив на стекле — статичный градиент, не backdrop-filter,
-   так что не стоит ничего по GPU даже когда карточка едет в ленте. Даёт
-   "стеклянный" вид (по мотивам референса — тёмный стеклянный шар с
-   радужным бликом) без единого лишнего пересчёта на кадр. */
-.feature-icon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: conic-gradient(from 200deg at 35% 30%,
-    rgba(255, 130, 130, 0.22),
-    rgba(255, 215, 130, 0.16) 20%,
-    rgba(150, 255, 210, 0.16) 40%,
-    rgba(130, 190, 255, 0.22) 60%,
-    rgba(200, 150, 255, 0.16) 80%,
-    rgba(255, 130, 130, 0.22) 100%);
-  mix-blend-mode: overlay;
-  opacity: .5;
-  pointer-events: none;
-}
-
-.feature-icon svg {
-  position: relative;
-  z-index: 1;
+.program-icon svg {
   width: 18px;
   height: 18px;
-  opacity: .82;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+  opacity: .92;
 }
 
-.icon-blue   { background: radial-gradient(circle at 30% 26%, rgba(180, 235, 255, 0.55), rgba(19, 45, 61, 0.92) 55%, rgba(7, 13, 18, 0.96) 100%); color: var(--cyan); }
-.icon-cyan   { background: radial-gradient(circle at 30% 26%, rgba(180, 250, 255, 0.55), rgba(15, 50, 56, 0.92) 55%, rgba(6, 15, 17, 0.96) 100%); color: #22d3ee; }
-.icon-pink   { background: radial-gradient(circle at 30% 26%, rgba(255, 205, 235, 0.5), rgba(58, 22, 44, 0.92) 55%, rgba(16, 8, 13, 0.96) 100%); color: var(--pink); }
-.icon-green  { background: radial-gradient(circle at 30% 26%, rgba(200, 255, 230, 0.5), rgba(14, 46, 36, 0.92) 55%, rgba(6, 15, 12, 0.96) 100%); color: var(--green); }
-.icon-amber  { background: radial-gradient(circle at 30% 26%, rgba(255, 240, 190, 0.5), rgba(58, 43, 10, 0.92) 55%, rgba(16, 12, 4, 0.96) 100%); color: var(--amber); }
+.program-item:nth-child(odd) .program-icon svg { color: var(--cyan); }
+.program-item:nth-child(even) .program-icon svg { color: var(--violet); }
 
-.icon-violet {
-  background: radial-gradient(circle at 30% 26%, rgba(225, 205, 255, 0.5), rgba(41, 24, 66, 0.92) 55%, rgba(12, 8, 18, 0.96) 100%);
-  color: var(--violet);
-}
-
-.icon-skull {
-  background: radial-gradient(circle at 30% 26%, rgba(225, 205, 255, 0.5), rgba(41, 24, 66, 0.92) 55%, rgba(12, 8, 18, 0.96) 100%);
-  padding: 3px;
-}
-
-.icon-skull img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
-}
-
-.feature-title {
-  font-size: 13.5px;
-  font-weight: 600;
+.program-title {
+  font-size: 14px;
+  font-weight: 700;
   letter-spacing: -.01em;
-  margin-bottom: 4px;
 }
 
-.feature-text {
-  font-size: 12px;
+.program-text {
+  margin: 0;
+  padding: 0 18px 16px 68px;
+  font-size: 12.5px;
   color: var(--text-dim);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 /* Flow */
@@ -474,9 +372,14 @@ body {
   font-size: 13.5px;
   border-left: 2px solid rgba(255,255,255,0.08);
   margin-left: 4px;
+  color: var(--text-dim);
 }
 
 .flow-step:last-child { border-left-color: transparent; }
+
+.audience-card .flow-step { padding-top: 6px; padding-bottom: 6px; }
+.audience-card .flow-step:first-child { padding-top: 2px; }
+.audience-card .flow-step:last-child { padding-bottom: 2px; }
 
 .flow-dot {
   position: absolute;
@@ -626,16 +529,6 @@ body {
 
 .callout-warn .callout-tag { color: var(--amber); }
 
-.dot-green, .dot-yellow {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  margin: 0 3px -1px 6px;
-}
-.dot-green { background: var(--green); }
-.dot-yellow { background: var(--amber); }
-
 .spacer { height: 8px; }
 
 /* Sticky buy bar */
@@ -680,7 +573,7 @@ body {
 }
 
 /* Блик сверху — общий для всех "стеклянных" панелей сайта */
-.feature-card::after,
+.program-list::after,
 .case-card::after,
 .flow::after,
 .callout::after,
@@ -779,26 +672,6 @@ body {
   font-size: 11px;
   pointer-events: none;
 }
-
-/* Пример техники / бонус — расширенные callout-карточки с несколькими абзацами */
-.preview-name {
-  position: relative;
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.preview-card p + p,
-.bonus-card p + p {
-  margin-top: 8px;
-}
-
-.preview-card .preview-note,
-.bonus-card .preview-note {
-  font-size: 12px;
-}
-
-.bonus-card .callout-tag { color: var(--green); }
 
 /* FAQ — аккордеон на нативных <details>, без лишнего JS */
 .faq {
