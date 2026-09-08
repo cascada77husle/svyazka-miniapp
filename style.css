@@ -314,7 +314,7 @@ body {
   margin-right: 3px;
 }
 
-.program-list[open] summary::after {
+.program-list.is-open summary::after {
   transform: rotate(-135deg);
   margin-top: 4px;
 }
@@ -734,7 +734,7 @@ body {
   transition: transform 0.25s ease;
 }
 
-.faq-item[open] summary::after {
+.faq-item.is-open summary::after {
   transform: translateY(-30%) rotate(-135deg);
 }
 
