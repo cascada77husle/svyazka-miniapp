@@ -30,14 +30,46 @@ buyButton.addEventListener("click", () => {
   }
 });
 
-// Карточки "Что внутри" — прижал пальцем/мышкой, лента останавливается,
-// отпустил — едет дальше. :hover не срабатывает на телефонах, поэтому
-// ставим паузу вручную через touch/mouse события на каждой ленте отдельно.
+// Карточки "Что внутри" — палец/мышь зажаты на ленте → стоп, отпустили →
+// снова едет. Отличаем "зажал и держит" от "провёл пальцем, чтобы
+// проскроллить страницу": во втором случае палец за touchstart двигается
+// дальше чем на TAP_MOVE_THRESHOLD px, и мы сразу снимаем паузу, не
+// дожидаясь touchend — иначе обычный скролл страницы пальцем, начавшийся
+// прямо над лентой, каждый раз на мгновение её замораживал.
+const TAP_MOVE_THRESHOLD = 10;
+
 document.querySelectorAll(".carousel-track").forEach((track) => {
   const pause = () => track.classList.add("is-paused");
   const resume = () => track.classList.remove("is-paused");
 
-  track.addEventListener("touchstart", pause, { passive: true });
+  let startX = 0;
+  let startY = 0;
+
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      pause();
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchmove",
+    (e) => {
+      const t = e.touches[0];
+      const dx = Math.abs(t.clientX - startX);
+      const dy = Math.abs(t.clientY - startY);
+      if (dx > TAP_MOVE_THRESHOLD || dy > TAP_MOVE_THRESHOLD) {
+        // это скролл/свайп, а не удержание пальца на месте — не держим паузу
+        resume();
+      }
+    },
+    { passive: true }
+  );
+
   track.addEventListener("touchend", resume);
   track.addEventListener("touchcancel", resume);
 

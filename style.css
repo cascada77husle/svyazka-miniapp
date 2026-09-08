@@ -374,6 +374,26 @@ body {
   pointer-events: none;
 }
 
+/* Радужный перелив на стекле — статичный градиент, не backdrop-filter,
+   так что не стоит ничего по GPU даже когда карточка едет в ленте. Даёт
+   "стеклянный" вид (по мотивам референса — тёмный стеклянный шар с
+   радужным бликом) без единого лишнего пересчёта на кадр. */
+.feature-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 200deg at 35% 30%,
+    rgba(255, 130, 130, 0.22),
+    rgba(255, 215, 130, 0.16) 20%,
+    rgba(150, 255, 210, 0.16) 40%,
+    rgba(130, 190, 255, 0.22) 60%,
+    rgba(200, 150, 255, 0.16) 80%,
+    rgba(255, 130, 130, 0.22) 100%);
+  mix-blend-mode: overlay;
+  opacity: .5;
+  pointer-events: none;
+}
+
 .feature-icon svg {
   position: relative;
   z-index: 1;
