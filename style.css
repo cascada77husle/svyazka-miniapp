@@ -260,6 +260,8 @@ body {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
+  /* Изолируем перерисовку едущей ленты от остального документа */
+  contain: layout paint style;
 }
 
 .carousel-track {
@@ -268,6 +270,12 @@ body {
   width: max-content;
   padding: 0 18px;
   animation: carousel-scroll 28s linear infinite;
+  /* Подсказка браузеру заранее вынести ленту на отдельный GPU-слой —
+     без этого каждый кадр анимации может триггерить перерасчёт layout/paint
+     соседних блоков, что и даёт периодические подтормаживания на ПК/телефоне. */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .carousel-track:hover,
@@ -285,6 +293,15 @@ body {
   width: 150px;
   aspect-ratio: 1 / 1;
   padding: 14px;
+  /* backdrop-filter (размытие фона "на лету") — самый дорогой эффект на
+     странице: 14 карточек в двух бесконечных лентах, каждая пересчитывает
+     блюр за кадром движения — отсюда подтормаживания на слабых
+     телефонах/ПК. На едущих карточках убираем сам blur, оставляя тот же
+     "стеклянный" вид через плотный полупрозрачный фон без runtime-стоимости;
+     статичные стеклянные блоки на странице (вне карусели) блюр сохраняют. */
+  background: rgba(21, 21, 31, 0.82);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .carousel .feature-title {
