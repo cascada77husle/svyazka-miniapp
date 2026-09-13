@@ -13,12 +13,12 @@
   --amber: #b8792e;
   --gradient: linear-gradient(135deg, #2b2018, #6b5a42);
 
-  /* Стекло — как у уведомлений на локскрине: нейтральный тёмный, сильный
-     блюр, лёгкий блик сверху, мягкая тень "парения" над фоном. */
-  --glass-bg: rgba(255, 253, 248, 0.55);
-  --glass-border: rgba(30, 24, 16, 0.10);
-  --glass-blur: blur(20px) saturate(140%);
-  --glass-shadow: 0 14px 34px -18px rgba(43, 32, 18, 0.20), 0 2px 8px rgba(43, 32, 18, 0.08);
+  /* Глянцевое стекло: чуть более плотный тон (не белый), яркий блик по
+     верхнему краю (border + inset), сильный блюр — без внешней тени. */
+  --glass-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.48) 0%, rgba(236, 225, 205, 0.42) 45%, rgba(236, 225, 205, 0.55) 100%);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-blur: blur(24px) saturate(180%);
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 0 rgba(43, 32, 18, 0.06);
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -137,10 +137,10 @@ body {
   letter-spacing: .04em;
   color: var(--cyan);
   background: rgba(169, 130, 79, 0.12);
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(169, 130, 79, 0.35);
-  box-shadow: 0 6px 16px -10px rgba(43, 32, 18, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
   margin-bottom: 16px;
 }
 
@@ -212,8 +212,8 @@ body {
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 8px;
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(95, 125, 82, 0.35);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
@@ -716,7 +716,7 @@ body {
   font-weight: 800;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 10px 24px -14px rgba(43, 32, 18, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .buy-button::after {
