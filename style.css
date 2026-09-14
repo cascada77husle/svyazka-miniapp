@@ -223,7 +223,8 @@ body {
   align-items: center;
   gap: 6px;
   margin: 0 0 20px 4px;
-  font-family: "Baloo 2", -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-variant-numeric: lining-nums;
   text-transform: uppercase;
   font-size: 12.5px;
   font-weight: 700;
