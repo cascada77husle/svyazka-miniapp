@@ -6,11 +6,12 @@ const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.ready();
   tg.expand();
-  // Страница всегда тёмная (собственный бренд), а не тема пользователя —
-  // подгоняем системные панели Telegram под тот же цвет для бесшовного вида.
+  // Страница всегда светлая бежевая (собственный бренд), а не тема
+  // пользователя — подгоняем системные панели Telegram под тот же
+  // цвет для бесшовного вида.
   try {
-    tg.setBackgroundColor("#0a0a12");
-    tg.setHeaderColor("#0a0a12");
+    tg.setBackgroundColor("#f4ecdf");
+    tg.setHeaderColor("#f4ecdf");
   } catch (e) {
     // старые клиенты Telegram могут не поддерживать эти методы — не критично
   }
