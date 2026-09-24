@@ -1,5 +1,10 @@
-// Telegram Web App SDK — сообщает боту, что пользователь нажал "купить".
-// Реальную оплату (создание платежа ЮKassa) делает бот-бэкенд (bot/main.py),
+// Telegram Web App SDK — кнопка "купить" ведёт на t.me/<bot>?start=buy,
+// это открывает чат с ботом и сразу шлёт "/start buy" (тот же механизм,
+// что уже используют реферальные ссылки ?start=ref_...). Раньше кнопка
+// слала tg.sendData("start_payment") — это оказалось ненадёжно: событие
+// web_app_data не всегда долетало до бота. Deep-link надёжнее — работает
+// и внутри Mini App, и если страницу открыли просто в браузере.
+// Реальную оплату (создание платежа Platega) делает бот-бэкенд,
 // Mini App сама по себе не хранит и не видит секретных ключей.
 
 const tg = window.Telegram?.WebApp;
@@ -27,14 +32,17 @@ if (tg) {
 const buyButton = document.getElementById("buy-button");
 const hint = document.getElementById("hint");
 
+const START_PAYMENT_URL = "https://t.me/luxmaxguide_bot?start=buy";
+
 buyButton.addEventListener("click", () => {
-  if (tg && tg.sendData) {
-    tg.sendData("start_payment");
-    hint.textContent = "Открываю оплату в чате с ботом…";
-    setTimeout(() => tg.close(), 600);
+  hint.textContent = "Открываю оплату в чате с ботом…";
+  if (tg && tg.openTelegramLink) {
+    // Внутри Mini App — открывает чат с ботом и сразу шлёт "/start buy".
+    tg.openTelegramLink(START_PAYMENT_URL);
   } else {
-    // Открыто не внутри Telegram (например, для отладки в обычном браузере)
-    hint.textContent = "Открой это через кнопку в боте в Telegram, чтобы оплата сработала.";
+    // Открыто не внутри Telegram (например, для отладки в обычном браузере) —
+    // обычная навигация на t.me тоже откроет Telegram и запустит бота.
+    window.location.href = START_PAYMENT_URL;
   }
 });
 
