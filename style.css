@@ -805,3 +805,36 @@ body {
   font-size: 13.5px;
   color: var(--text-dim);
 }
+
+/* Переключатель языка (2026-09-29) — фиксированная стеклянная таблетка в
+   правом верхнем углу, поверх всего контента (z-index выше .buy-bar, но
+   она внизу экрана, так что пересечься физически не могут). safe-area
+   учтён на случай "чёлки"/notch сверху экрана. */
+.lang-toggle {
+  position: fixed;
+  top: calc(14px + env(safe-area-inset-top));
+  right: 14px;
+  z-index: 6;
+  min-width: 42px;
+  height: 34px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  color: var(--violet);
+  background: rgba(255, 253, 248, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), 0 4px 14px rgba(43, 32, 18, 0.14);
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.lang-toggle:active {
+  transform: scale(.92);
+}
