@@ -810,7 +810,7 @@ body {
    правом верхнем углу, поверх всего контента (z-index выше .buy-bar, но
    она внизу экрана, так что пересечься физически не могут). safe-area
    учтён на случай "чёлки"/notch сверху экрана. */
-.lang-toggle {
+.lang-toggle { display: none !important; /* temporarily disabled — remove this line (and flip LANG_FEATURE_ENABLED in script.js) to re-enable */
   position: fixed;
   top: calc(14px + env(safe-area-inset-top));
   right: 14px;
