@@ -63,7 +63,7 @@ buyButton.addEventListener("click", () => {
    страницы в HTML изначально на русском — это и есть словарь "ru" ниже,
    продублированный, чтобы явно видеть оба варианта рядом при правках. */
 
-const LANG_KEY = "luxmax_site_lang_v1";
+const LANG_KEY = "luxmax_site_lang_v1"; const LANG_FEATURE_ENABLED = false; // switcher temporarily disabled — flip to true (and remove the .lang-toggle{display:none} rule in style.css) to re-enable
 
 const TRANSLATIONS = {
   ru: {
@@ -218,13 +218,13 @@ function detectDefaultLang() {
   return "ru";
 }
 
-let currentLang = "ru";
+let currentLang = "ru"; if (LANG_FEATURE_ENABLED) {
 try {
   currentLang = localStorage.getItem(LANG_KEY) || detectDefaultLang();
 } catch (e) {
   currentLang = detectDefaultLang();
 }
-if (currentLang !== "ru" && currentLang !== "en") currentLang = "ru";
+if (currentLang !== "ru" && currentLang !== "en") currentLang = "ru"; }
 
 function applyLang(lang) {
   const dict = TRANSLATIONS[lang] || TRANSLATIONS.ru;
@@ -254,7 +254,7 @@ function applyLang(lang) {
 }
 
 document.getElementById("lang-toggle").addEventListener("click", () => {
-  applyLang(currentLang === "ru" ? "en" : "ru");
+  if (LANG_FEATURE_ENABLED) applyLang(currentLang === "ru" ? "en" : "ru");
 });
 
 applyLang(currentLang);
