@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Страница тарифа Старт</title>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+a{text-decoration:none;color:inherit}
+.pg{position:fixed;inset:0;overflow:hidden;background:#f4ecdf;color:#1c1712;
+background-image:radial-gradient(rgba(30,24,16,.10) 1.1px,transparent 1.3px);background-size:20px 20px}
+.top{position:absolute;top:0;left:0;right:0;height:50px;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(244,236,223,.94);border-bottom:1px solid rgba(30,24,16,.08);font-size:14px;color:#6f6455}
+.top .ttl{display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.top .ttl b{font-size:14px;color:#1c1712}.top .ttl span{font-size:11px}
+.sc{position:absolute;top:50px;bottom:0;left:0;right:0;overflow-y:auto;overflow-x:hidden;padding:20px 16px 150px}
+.sc::-webkit-scrollbar{width:0}
+.badge{display:inline-block;padding:6px 13px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.05em;color:#4a4038;background:rgba(43,32,24,.08)}
+h1{margin:12px 0 8px;font-size:27px;line-height:1.08;font-weight:900;letter-spacing:-.01em;-webkit-text-stroke:.5px #1c1712}
+h1 em{font-style:normal;background:linear-gradient(135deg,#2b2018,#6f6455);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+.sub{font-family:Georgia,serif;font-style:italic;font-size:14px;line-height:1.4;color:#6f6455;margin:0 0 16px}
+.price{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;margin:6px 0 4px}
+.price b{white-space:nowrap;font-size:46px;font-weight:900;letter-spacing:-.02em;-webkit-text-stroke:.6px #1c1712}
+.price s{font-size:15px;color:#9a8d79}
+.note{font-size:13px;color:#6f6455;margin-bottom:6px}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(236,225,205,.5));border:1px solid rgba(255,255,255,.6);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(43,32,18,.06);padding:16px}
+h2{margin:26px 0 10px;font-size:18px;font-weight:800;-webkit-text-stroke:.3px #1c1712}
+.li{display:flex;gap:10px;margin:0 0 10px;font-size:13.5px;line-height:1.4}
+.li i{flex:none;width:22px;height:22px;border-radius:7px;background:#2b2018;color:#f4ecdf;font-style:normal;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.cv{position:relative;overflow:hidden;border-radius:20px;color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;margin-bottom:12px}
+.cv .tag{position:absolute;top:14px;left:16px;font-size:11px;font-weight:700;letter-spacing:.08em;opacity:.85}
+.cv .num{position:absolute;top:2px;right:14px;font-size:84px;font-weight:900;opacity:.16;line-height:1}
+.cv .t{font-size:21px;font-weight:800;line-height:1.15;position:relative}
+.cv .d{font-size:13px;opacity:.85;margin-top:5px;position:relative;line-height:1.35}
+.gd{margin-bottom:22px}
+.cv svg{position:absolute;right:-6px;bottom:0;height:100%;width:auto;z-index:0}
+.cv .t,.cv .d,.cv .tag{z-index:1}
+.cv>img{position:absolute;right:0;bottom:0;height:100%;width:auto;filter:invert(1);mix-blend-mode:screen;opacity:.92;z-index:0}
+.cv>img.sil{filter:none;mix-blend-mode:normal;opacity:.9;right:8px}
+.cv .ph.m{width:46%;background:linear-gradient(135deg,#efe9f8,#cfc3ea);-webkit-mask-image:linear-gradient(90deg,transparent,#000 28%);mask-image:linear-gradient(90deg,transparent,#000 28%)}
+.cv:has(.ph.m) .t,.cv:has(.ph.m) .d{max-width:52%}
+.cv>img.sil{-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.cv .ph{position:absolute;right:0;top:0;bottom:0;width:52%;background:linear-gradient(135deg,#f6ede3,#e9c7bf);-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%);z-index:0}
+.cv .ph img{position:absolute;right:0;bottom:0;height:100%;width:auto;mix-blend-mode:multiply}
+.cv .t{max-width:62%}.cv .d{max-width:60%}
+.cv::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),transparent 65%);z-index:0}
+.day{display:flex;align-items:flex-end;justify-content:space-between}
+.day .big{font-size:56px;font-weight:900;line-height:.9;letter-spacing:-.03em;-webkit-text-stroke:.8px #1c1712}
+.day .big small{font-size:22px;color:#9a8d79;-webkit-text-stroke:0;font-weight:700}
+.prog{height:6px;border-radius:3px;background:rgba(30,24,16,.1);margin:14px 0 12px;overflow:hidden}
+.prog i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#6f6455,#2b2018)}
+.wk{display:flex;justify-content:space-between}
+.wk div{width:34px;text-align:center;font-size:10.5px;color:#9a8d79}
+.wk div b{display:block;width:34px;height:34px;border-radius:17px;margin-bottom:4px;background:rgba(30,24,16,.07);line-height:34px;font-size:15px;font-weight:400}
+.wk div b.on{background:#2b2018;color:#f4ecdf}
+.hab{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hab span{padding:6px 11px;border-radius:999px;background:rgba(43,32,24,.08);font-size:12.5px;color:#4a3d2a}
+.feat{display:flex;gap:12px;align-items:flex-start;padding:14px;margin-bottom:10px}
+.feat .ic{flex:none;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#2b2018,#4a4038);display:flex;align-items:center;justify-content:center;font-size:20px}
+.feat b{font-size:14px;display:block;margin-bottom:2px}.feat span{font-size:12.5px;line-height:1.4;color:#5a4f3e}
+.chip{display:inline-block;margin:2px 4px 0 0;padding:4px 9px;border-radius:999px;background:rgba(43,32,24,.08);font-size:11.5px;color:#4a3d2a}
+.gd .what{margin-top:10px;padding:14px 16px}
+.gd .what .h{font-size:11px;font-weight:800;letter-spacing:.08em;color:#6f6455;margin-bottom:8px}
+.gd .what .r{display:flex;gap:9px;font-size:14px;line-height:1.4;margin-bottom:7px;color:#3a3127}
+.gd ul{margin:8px 4px 0 18px;padding:0;font-size:14px;line-height:1.45;color:#3a3127}
+.step{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.step b.n{flex:none;width:30px;height:30px;border-radius:15px;background:#2b2018;color:#f4ecdf;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step div{font-size:13.5px;line-height:1.4}.step div span{color:#6f6455;font-size:13px}
+details{background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(236,225,205,.5));border:1px solid rgba(255,255,255,.6);border-radius:16px;padding:14px 16px;margin-bottom:8px}
+summary{font-weight:700;font-size:14px;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+details p{margin:8px 0 0;font-size:13px;line-height:1.5;color:#3a3127}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+td,th{padding:9px 6px;border-bottom:1px solid rgba(30,24,16,.1);text-align:left;vertical-align:top}
+th{font-size:12px;color:#6f6455;font-weight:700}
+td.y{color:#5f7d52;font-weight:700}td.no{color:#b3a68f}
+.bar{position:absolute;left:10px;right:10px;bottom:10px;z-index:6;padding:12px 14px;border-radius:24px;background:rgba(244,236,223,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);box-shadow:0 10px 30px rgba(43,32,18,.22),inset 0 1px 0 rgba(255,255,255,.8)}
+.bar .row{display:flex;align-items:center;gap:12px}
+.bar .pp{display:flex;flex-direction:column;line-height:1.1}
+.bar .pp b{font-size:26px;font-weight:900}.bar .pp span{font-size:11px;color:#6f6455}
+.buy{flex:1;display:block;text-align:center;padding:14px 12px;border-radius:18px;background:linear-gradient(135deg,#2b2018,#4a4038);color:#fff;font-size:16px;font-weight:700}
+.buy:hover{filter:brightness(1.15)}
+.hint{margin-top:7px;text-align:center;font-size:11.5px;color:#6f6455}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:#5f7d52}
+.dot{width:8px;height:8px;border-radius:4px;background:#5f7d52}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ib{flex:none;width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#6b625a 0%,#2f2a26 55%,#14110f 100%);color:#f4f1ec;display:flex;align-items:center;justify-content:center;box-shadow:0 7px 14px rgba(43,32,18,.38),0 2px 3px rgba(43,32,18,.35),inset 0 1.5px 0 rgba(255,255,255,.4),inset 0 -4px 7px rgba(0,0,0,.45)}
+.ib .ico{stroke-width:2;filter:drop-shadow(0 2px 2px rgba(0,0,0,.55)) drop-shadow(0 0 5px rgba(255,255,255,.22))}
+.ib.s{width:34px;height:34px;border-radius:11px}.ib.s .ico{width:19px;height:19px}
+.prev{position:relative;border-radius:20px;overflow:hidden}
+.prev .bl{filter:blur(7px);opacity:.85;pointer-events:none}
+.prev .lk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(244,236,223,.35);text-align:center;padding:0 24px}
+.prev .lk .ib{width:52px;height:52px;border-radius:26px}.prev .lk .ib .ico{width:26px;height:26px}
+.prev .lk span{font-size:13px;font-weight:700;color:#2b2018}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mods>div{display:flex;align-items:center;gap:8px;padding:8px;border-radius:14px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.6);font-size:12.5px;font-weight:600}
+.gc{padding:0;margin-bottom:14px;overflow:hidden;background:none;border:0;border-radius:20px}
+.gc>summary{position:relative;display:block}
+.gc>summary .cv{margin:0}
+.gc .chev{position:absolute;right:14px;top:14px;z-index:2;width:30px;height:30px;border-radius:15px;background:rgba(0,0,0,.35);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.gc[open] .chev{transform:rotate(180deg)}
+.gc .more{margin-top:8px;padding:16px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.6),rgba(236,225,205,.55));border:1px solid rgba(255,255,255,.6)}
+.gc .more h4{margin:14px 0 6px;font-size:11px;letter-spacing:.08em;color:#6f6455;font-weight:800}
+.gc .more h4:first-child{margin-top:0}
+.gc .more p{margin:0 0 6px;font-size:14px;line-height:1.5;color:#3a3127}
+.gc .more .r{display:flex;gap:9px;font-size:14px;line-height:1.4;margin-bottom:7px;color:#3a3127}
+.gc .more .r .ico{flex:none;width:18px;height:18px;margin-top:1px;color:#6f6455}
+.gc .more .mod{padding:9px 0;border-top:1px solid rgba(30,24,16,.08);font-size:14px;line-height:1.4}
+.gc .more .mod b{display:block;font-size:14px}.gc .more .mod span{color:#5a4f3e;font-size:13px}
+.hint2{font-size:12px;color:#6f6455;text-align:center;margin:-4px 0 12px}
+.gk{margin-bottom:14px}.gk .gx{position:absolute;opacity:0;pointer-events:none}
+.gk label{display:block;position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.gk label .cv{margin:0;transition:border-radius .5s cubic-bezier(.2,.7,.2,1)}
+.gk .chev{position:absolute;right:14px;top:14px;z-index:2;width:30px;height:30px;border-radius:15px;background:rgba(0,0,0,.35);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.gk .gx:checked~label .chev{transform:rotate(180deg)}
+.gk .gx:checked~label .cv{border-bottom-left-radius:6px;border-bottom-right-radius:6px}
+.gk .gb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s cubic-bezier(.2,.7,.2,1)}
+.gk .gx:checked~.gb{grid-template-rows:1fr}
+.gk .gi{overflow:hidden;min-height:0;border-radius:0 0 20px 20px}
+.gk .mo{margin-top:4px;padding:16px;color:#fff;border-radius:6px 6px 20px 20px;opacity:0;transform:translateY(-8px);transition:opacity .5s ease .08s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.gk .gx:checked~.gb .mo{opacity:1;transform:none}
+.gk .mo h4{margin:16px 0 6px;font-size:11px;letter-spacing:.09em;color:rgba(255,255,255,.65);font-weight:800}
+.gk .mo h4:first-child{margin-top:0}
+.gk .mo p{margin:0 0 6px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.92)}
+.gk .mo .r{display:flex;gap:9px;font-size:14px;line-height:1.4;margin-bottom:7px;color:rgba(255,255,255,.92)}
+.gk .mo .r .ico{flex:none;width:18px;height:18px;margin-top:1px;color:#fff;opacity:.85}
+.gk .mo .mod{padding:9px 0;border-top:1px solid rgba(255,255,255,.16);font-size:13px;line-height:1.4}
+.gk .mo .mod b{display:block;font-size:13px}.gk .mo .mod span{color:rgba(255,255,255,.75);font-size:12px}
+.gk .mo .src{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.16);font-size:12px;line-height:1.4;color:rgba(255,255,255,.65)}
+.price s{font-size:26px;font-weight:800;color:#8a7d6a;text-decoration-thickness:3px;white-space:nowrap}
+.price .off{align-self:center;padding:5px 11px;border-radius:999px;background:#2b2018;color:#fff;font-size:15px;font-weight:800;white-space:nowrap}
+.mods>div.lkd{opacity:.55}
+.mods>div.lkd .lki{margin-left:auto;width:16px;height:16px;color:#6f6455}
+.bar .pp s{font-size:12px;color:#9a8d79;margin-right:6px;font-weight:600}
+.bar .oldrow{display:flex;align-items:center;gap:6px;margin-bottom:2px}
+.bar .oldrow s{font-size:19px;font-weight:800;color:#8a7d6a;text-decoration-thickness:2px}
+.bar .oldrow i{font-style:normal;font-size:13px;font-weight:800;color:#fff;background:#2b2018;border-radius:999px;padding:3px 9px}
+.bar .pp b{color:#1c1712}
+</style>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><script src="https://telegram.org/js/telegram-web-app.js"></script></head>
+<body>
+<div class="pg">
+<div class="top"><a href="#" onclick="tg.close();return false">✕ Закрыть</a><div class="ttl"><b>Миротворец</b><span>мини-приложение</span></div><div>⋯</div></div>
+<div class="sc">
+<span class="badge">ТАРИФ СТАРТ</span>
+<h1>Трекер жизни, который <em>не даёт бросить</em></h1>
+<p class="sub">Базовый трекер без срока и два гайда в подарок.</p>
+<div class="price"><b>500 ₽</b></div>
+<div class="note">Разовый платёж. Доступ открывается сразу после оплаты.</div>
+<div style="height:14px"></div>
+<div class="prev"><div class="bl"><div class="glass"><div class="day"><div><div style="font-size:12px;color:#6f6455;margin-bottom:6px">Трекер жизни</div><div class="big">12<small> дней</small></div></div><div style="text-align:right"><div style="font-size:12px;color:#6f6455">серия</div><div style="font-size:22px;font-weight:800">9</div></div></div><div class="prog"><i style="width:62%"></i></div><div class="mods"><div>Привычки</div><div>Задания</div><div>Спорт</div><div>Финансы</div><div>Внешность</div><div>Режим</div></div></div></div><div class="lk"><div class="ib"><svg class="ico " viewBox="0 0 24 24"><path d="M6 11h12v9H6zM8 11V8a4 4 0 018 0v3"/></svg></div><span>Полный вид открывается после покупки</span></div></div>
+<h2>Трекер жизни</h2>
+<p style="margin:-2px 0 14px;font-size:13px;line-height:1.45;color:#5a4f3e">Привычки, задания и спорт в одном месте. Серия и прогресс, срок не ограничен.</p>
+<div class="glass" style="margin-bottom:10px"><div style="font-size:12px;font-weight:800;letter-spacing:.08em;color:#6f6455;margin-bottom:10px">БЛОКИ</div><div class="mods"><div><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M4 12a8 8 0 0114-5l2 2M20 12a8 8 0 01-14 5l-2-2M18 4v5h-5M6 20v-5h5"/></svg></div>Привычки</div><div><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></div>Задания</div><div><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M2 9v6M5 7v10M19 7v10M22 9v6M5 12h14"/></svg></div>Спорт</div><div class="lkd"><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M3 7h16a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2zM3 7l12-3v3M17 14h2"/></svg></div>Финансы<svg class="ico lki" viewBox="0 0 24 24"><path d="M6 11h12v9H6zM8 11V8a4 4 0 018 0v3"/></svg></div><div class="lkd"><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM9 10h.01M15 10h.01M8.5 14.5c1 1.5 2.2 2 3.5 2s2.5-.5 3.5-2"/></svg></div>Внешность<svg class="ico lki" viewBox="0 0 24 24"><path d="M6 11h12v9H6zM8 11V8a4 4 0 018 0v3"/></svg></div><div class="lkd"><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M20 14A8 8 0 1110 4a6.5 6.5 0 0010 10z"/></svg></div>Сон и режим<svg class="ico lki" viewBox="0 0 24 24"><path d="M6 11h12v9H6zM8 11V8a4 4 0 018 0v3"/></svg></div><div class="lkd"><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M6 3v8a2 2 0 004 0V3M8 11v10M17 3c-2 2-3 5-3 8h3v10"/></svg></div>Питание<svg class="ico lki" viewBox="0 0 24 24"><path d="M6 11h12v9H6zM8 11V8a4 4 0 018 0v3"/></svg></div><div class="lkd"><div class="ib s"><svg class="ico " viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></div>Общение<svg class="ico lki" viewBox="0 0 24 24"><path d="M6 11h12v9H6zM8 11V8a4 4 0 018 0v3"/></svg></div></div></div>
+<h2>2 гайда в подарок</h2>
+<div class="hint2">Нажми на карточку, чтобы раскрыть описание</div>
+<div class="gk"><input type="checkbox" class="gx" id="gk1"><label for="gk1"><div class="cv" style="height:160px;background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.18),transparent 45%),linear-gradient(135deg,#3a2414,#c47a2c)"><div class="num">01</div><svg viewBox="0 0 120 140" preserveAspectRatio="xMaxYMax meet"><circle cx="62" cy="60" r="38" fill="#fff" opacity=".16"/><path d="M70 14 36 74h26l-8 52 38-64H66Z" fill="#fff" opacity=".92"/></svg><div class="tag">ГАЙД 01 · PDF</div><div class="t">Энергия на максимум</div><div class="d">Режим дня за 7 дней</div></div><div class="chev"><svg class="ico " viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></label><div class="gb"><div class="gi"><div class="mo" style="background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.18),transparent 45%),linear-gradient(135deg,#3a2414,#c47a2c)"><h4>О ЧЁМ ГАЙД</h4><p>Пошаговая настройка режима дня за неделю: сон, свет, питание, нагрузка. Без экстремальных методик, только то, что реально встраивается в жизнь.</p><h4>ЧТО ВНУТРИ</h4><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M20 14A8 8 0 1110 4a6.5 6.5 0 0010 10z"/></svg><span>Сон: во сколько ложиться и как вставать без боли</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>Утро: первые 60 минут, которые задают день</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M6 3v8a2 2 0 004 0V3M8 11v10M17 3c-2 2-3 5-3 8h3v10"/></svg><span>Питание и вода: простые правила без диет</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M2 9v6M5 7v10M19 7v10M22 9v6M5 12h14"/></svg><span>Лёгкая нагрузка, которая добавляет энергию</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg><span>План на 7 дней с чек-листом</span></div><h4>РЕЗУЛЬТАТ</h4><p>Ровная энергия в течение дня и режим, который не разваливается через три дня.</p></div></div></div></div>
+<div class="gk"><input type="checkbox" class="gx" id="gk2"><label for="gk2"><div class="cv" style="height:160px;background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.18),transparent 45%),linear-gradient(135deg,#2a2210,#b8892e)"><div class="num">02</div><svg viewBox="0 0 120 140" preserveAspectRatio="xMaxYMax meet"><circle cx="54" cy="48" r="17" fill="#fff" opacity="0.88"/><path d="M6 140 C6 92 26 76 54 76 C82 76 102 92 102 140Z" fill="#fff" opacity="0.88"/><g transform="translate(36 4) scale(1.0)"><path d="M0 14 L2 2 L8 8 L12 0 L16 8 L22 2 L24 14Z" fill="#ffd36b"/></g><path d="M96 40v90" stroke="#fff" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" opacity=".8"/></svg><div class="tag">ГАЙД 02 · PDF</div><div class="t">Границы: как перестать быть удобным</div><div class="d">Говорить «нет» без вины</div></div><div class="chev"><svg class="ico " viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></label><div class="gb"><div class="gi"><div class="mo" style="background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.18),transparent 45%),linear-gradient(135deg,#2a2210,#b8892e)"><h4>О ЧЁМ ГАЙД</h4><p>Как отстаивать свои интересы спокойно и без конфликтов, оставаясь уважительным к людям.</p><h4>ЧТО ВНУТРИ</h4><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><span>Что такое личные границы и где ты их теряешь</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Фразы для отказа: коротко, вежливо, твёрдо</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M9 11a3 3 0 100-6 3 3 0 000 6zM3 20c0-3 3-5 6-5s6 2 6 5M17 11a3 3 0 100-6M21 20c0-2.5-2-4.5-4-5"/></svg><span>Как вести себя с давлением и манипуляциями</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/></svg><span>Уважение к себе как привычка</span></div><div class="r"><svg class="ico " viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span>Упражнения на 14 дней</span></div><h4>РЕЗУЛЬТАТ</h4><p>Меньше лишних обязательств и больше времени на то, что важно именно тебе.</p></div></div></div></div>
+<h2>Как это работает</h2>
+<div class="step"><b class="n">1</b><div>Оплачиваешь в Telegram<br><span>Без сторонних сайтов и ввода карты где-то ещё.</span></div></div>
+<div class="step"><b class="n">2</b><div>Получаешь доступ в боте<br><span>Кнопка придёт в чат сразу после оплаты.</span></div></div>
+<div class="step"><b class="n">3</b><div>Ведёшь трекер и читаешь гайды<br><span>Читай в приложении или скачай в PDF.</span></div></div>
+<h2>Старт или Pro</h2>
+<div class="glass" style="padding:8px 12px"><table>
+<tr><th></th><th>Старт</th><th>Pro</th></tr>
+<tr><td>Срок трекера</td><td class="y">без лимита</td><td class="y">без лимита</td></tr>
+<tr><td>Блоки</td><td>3 базовых</td><td class="y">все 8</td></tr>
+<tr><td>Привычки</td><td>до 5</td><td class="y">без ограничений</td></tr>
+<tr><td>Финансы, внешность, сон, питание, общение</td><td class="no">нет</td><td class="y">есть</td></tr>
+<tr><td>Итоги недели и аналитика</td><td class="no">нет</td><td class="y">есть</td></tr>
+<tr><td>Свои блоки и цели</td><td class="no">нет</td><td class="y">есть</td></tr>
+<tr><td>Гайды</td><td>2</td><td class="y">4 закрытых</td></tr>
+<tr><td>Цена</td><td>500 ₽</td><td class="y"><s style="color:#9a8d79;font-weight:400">2 990</s> 990 ₽</td></tr></table></div>
+<div class="glass" style="margin-top:20px;background:linear-gradient(135deg,#2b2018,#4a4038);color:#f4ecdf;border:0">
+<div style="font-size:12px;letter-spacing:.06em;opacity:.8;font-weight:700">ХОЧЕШЬ БОЛЬШЕ?</div>
+<div style="font-size:17px;font-weight:800;margin:6px 0">Pro: все блоки и 4 закрытых гайда</div>
+<div style="font-size:13px;opacity:.85;margin-bottom:12px">Скидка: <s>2 990 ₽</s> 990 ₽ вместо 2 990 ₽.</div>
+<a href="pro.html" style="display:block;text-align:center;padding:12px;border-radius:12px;background:#f4ecdf;color:#1c1712;font-weight:700;font-size:14px">Смотреть Pro · 990 ₽</a></div>
+<h2>Частые вопросы</h2>
+<details><summary>Что я получу после оплаты?</summary><p>Кнопку доступа в чате: трекер и гайды в одном месте, прямо в Telegram.</p></details><details><summary>Можно ли с телефона?</summary><p>Да, всё открывается внутри Telegram.</p></details><details><summary>Если нужна помощь?</summary><p>Нажми «Задать вопрос» в боте, и я отвечу лично.</p></details>
+</div>
+<div class="bar"><div class="row"><div class="pp"><b>500 ₽</b><span>разовый платёж</span></div><a class="buy" href="#" onclick="buy();return false">Забрать Старт</a></div><div class="hint">Оплата в Telegram · доступ сразу после оплаты</div></div>
+</div>
+<script>
+var tg=(window.Telegram&&Telegram.WebApp)||{close:function(){history.back()},ready:function(){},expand:function(){}};
+tg.ready();tg.expand&&tg.expand();
+var BOT="luxmaxguide_bot",TARIFF="start";
+function buy(){var u="https://t.me/"+BOT+"?start=buy_"+TARIFF;
+if(tg.openTelegramLink){tg.openTelegramLink(u);tg.close()}else{location.href=u}}
+</script></body>
+</html>
