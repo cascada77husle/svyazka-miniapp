@@ -32,8 +32,9 @@ tg.ready();tg.expand&&tg.expand();
 try{if(tg.setBackgroundColor)tg.setBackgroundColor('#07080B');if(tg.setHeaderColor)tg.setHeaderColor('#07080B');if(tg.disableVerticalSwipes)tg.disableVerticalSwipes()}catch(e){}
 var S=window.SHOTS||{};[].forEach.call(document.querySelectorAll('img[data-s]'),function(i){var d=S[i.getAttribute('data-s')];if(d)i.src=d});
 var BOT="ARQONx_bot",TARIFF="<!--TARIFF-->start<!--/TARIFF-->";
-function buy(){var u="https://t.me/"+BOT+"?start=buy_"+TARIFF;
+function buy(){if(window.arqPay){arqPay(TARIFF);return}var u="https://t.me/"+BOT+"?start=buy_"+TARIFF;
 if(tg.openTelegramLink){tg.openTelegramLink(u);tg.close()}else{location.href=u}}
 </script>
-<script>(function(){var o=document.createElement("div");o.className="zmo";o.innerHTML="<img alt=\"\">";document.body.appendChild(o);var im=o.firstChild;document.addEventListener("click",function(e){var x=e.target;if(x&&x.classList&&x.classList.contains("zm")){im.src=x.src;im.alt=x.alt;o.classList.add("on")}else if(o.classList.contains("on")){o.classList.remove("on")}});document.addEventListener("keydown",function(e){if(e.key==="Escape")o.classList.remove("on")})})();</script></body>
+<script>(function(){var o=document.createElement("div");o.className="zmo";o.innerHTML="<img alt=\"\">";document.body.appendChild(o);var im=o.firstChild;document.addEventListener("click",function(e){var x=e.target;if(x&&x.classList&&x.classList.contains("zm")){im.src=x.src;im.alt=x.alt;o.classList.add("on")}else if(o.classList.contains("on")){o.classList.remove("on")}});document.addEventListener("keydown",function(e){if(e.key==="Escape")o.classList.remove("on")})})();</script><script src="pay.js?v=1"></script>
+</body>
 </html>
