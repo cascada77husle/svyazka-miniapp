@@ -32,7 +32,7 @@ if (tg) {
 const buyButton = document.getElementById("buy-button");
 const hint = document.getElementById("hint");
 
-const START_PAYMENT_URL = "https://t.me/luxmaxguide_bot?start=buy";
+const START_PAYMENT_URL = "https://t.me/ARQONx_bot?start=buy";
 
 buyButton.addEventListener("click", () => {
   hint.textContent = TRANSLATIONS[currentLang].hint_opening;
